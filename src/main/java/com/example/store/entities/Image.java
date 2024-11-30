@@ -16,23 +16,23 @@ public class Image {
 
     private String _fileName;
     private String _fileType;
-    private int _fileSize;
+    private Long _fileSize;
 
     @Lob
     private byte[] _bytes;
 
-    public Image(int id, String fileName, String filePath, String fileType, int fileSize) {
-        this._id = id;
+    public Image(String fileName, String fileType, Long fileSize, byte[] bytes) {
         this._fileName = fileName;
         this._fileType = fileType;
         this._fileSize = fileSize;
+        this._bytes = bytes;
     }
 
     public int getId() {
         return _id;
     }
 
-    public int getFileSize() {
+    public Long getFileSize() {
         return _fileSize;
     }
 
@@ -45,11 +45,11 @@ public class Image {
     }
 
     public void setId(int id) {
-        this._id = _id;
+        this._id = id;
     }
 
-    public void setFileSize(int fileSize) {
-        this._fileSize = _fileSize;
+    public void setFileSize(Long fileSize) {
+        this._fileSize = fileSize;
     }
 
     public void setFileType(String fileType) {
