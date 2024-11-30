@@ -17,12 +17,13 @@ public class Item {
 
     private String _valute;
 
-    private String _desctiption;
+    private String _description;
 
-    public Item(int price, String name, String valute) {
+    public Item(int price, String name, String valute, String description) {
         this._price = price;
         this._name = name;
         this._valute = valute;
+        this._description = description;
     }
 
     public int getPrice() {
@@ -53,15 +54,15 @@ public class Item {
         this._valute = valute;
     }
 
-    public String getValute(String valute){
+    public String getValute(){
         return this._valute;
     }
 
-    public void setDesctiption(String desctiption){
-        this._desctiption = desctiption;
+    public void setDescription(String description){
+        this._description = description;
     }
 
-    public String getDesctiption(String desctiption){
-        return this._desctiption;
+    public String getDescription(){
+        return this._description;
     }
 }

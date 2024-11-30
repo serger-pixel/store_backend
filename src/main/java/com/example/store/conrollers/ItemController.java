@@ -20,7 +20,7 @@ public class ItemController {
     }
 
     @GetMapping(value="items/get/{id}")
-    public ResponseEntity <Optional<Item>> getItem(@PathVariable(value = "id") String id){
+    public ResponseEntity <Item> getItem(@PathVariable(value = "id") String id){
         return ResponseEntity.ok().body(_service.getItem(Integer.parseInt(id)));
     }
 

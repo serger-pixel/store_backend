@@ -12,8 +12,8 @@ public class ItemService {
     @Autowired
     private ItemRepository _itemRepository;
 
-    public Optional<Item> getItem(int id){
-        return _itemRepository.findById(id);
+    public Item getItem(int id){
+        return _itemRepository.findById(id).get();
     }
 
     public  Item saveItem(Item item){
