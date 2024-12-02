@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.Optional;
 
 @RestController
 public class ItemController {
@@ -22,6 +21,11 @@ public class ItemController {
     @GetMapping(value="items/get/{id}")
     public ResponseEntity <Item> getItem(@PathVariable(value = "id") String id){
         return ResponseEntity.ok().body(_service.getItem(Integer.parseInt(id)));
+    }
+
+    @GetMapping(value="items/get/all")
+    public ResponseEntity <Iterable<Item>> getAllItem(){
+        return ResponseEntity.ok().body(_service.getAllItem());
     }
 
 

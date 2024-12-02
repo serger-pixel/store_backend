@@ -5,8 +5,6 @@ import com.example.store.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class ItemService {
     @Autowired
@@ -14,6 +12,10 @@ public class ItemService {
 
     public Item getItem(int id){
         return _itemRepository.findById(id).get();
+    }
+
+    public Iterable<Item> getAllItem(){
+        return _itemRepository.findAll();
     }
 
     public  Item saveItem(Item item){
