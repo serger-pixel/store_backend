@@ -14,15 +14,13 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int _id;
 
-    private String _fileName;
     private String _fileType;
     private Long _fileSize;
 
     @Lob
     private byte[] _bytes;
 
-    public Image(String fileName, String fileType, Long fileSize, byte[] bytes) {
-        this._fileName = fileName;
+    public Image(String fileType, Long fileSize, byte[] bytes) {
         this._fileType = fileType;
         this._fileSize = fileSize;
         this._bytes = bytes;
@@ -40,9 +38,6 @@ public class Image {
         return _fileType;
     }
 
-    public String getFileName() {
-        return _fileName;
-    }
 
     public void setId(int id) {
         this._id = id;
@@ -54,10 +49,6 @@ public class Image {
 
     public void setFileType(String fileType) {
         this._fileType = _fileType;
-    }
-
-    public void setFileName(String fileName) {
-        this._fileName = _fileName;
     }
 
     public void setBytes(byte[] bytes){

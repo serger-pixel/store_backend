@@ -5,15 +5,13 @@ import com.example.store.repositories.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class ImageService {
     @Autowired
     private ImageRepository _imageRepository;
 
-    public Optional<Image> getItem(int id){
-        return _imageRepository.findById(id);
+    public Image getItem(int id){
+        return _imageRepository.findById(id).get();
     }
 
     public Image saveImage(Image image){

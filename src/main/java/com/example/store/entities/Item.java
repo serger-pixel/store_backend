@@ -19,8 +19,11 @@ public class Item {
 
     private String _description;
 
-    public Item(int price, String name, String valute, String description) {
+    private int _idImage;
+
+    public Item(int price, int idImage, String name, String valute, String description) {
         this._price = price;
+        this._idImage = idImage;
         this._name = name;
         this._valute = valute;
         this._description = description;
@@ -64,5 +67,13 @@ public class Item {
 
     public String getDescription(){
         return this._description;
+    }
+
+    public void setIdImage(int idImage){
+        this._idImage = idImage;
+    }
+
+    public int getIdImage(){
+        return this._idImage;
     }
 }
