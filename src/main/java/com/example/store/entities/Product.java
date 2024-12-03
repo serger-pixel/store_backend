@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table
 @NoArgsConstructor
-public class Item {
+public class Product {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int _id;
@@ -21,7 +21,7 @@ public class Item {
 
     private int _idImage;
 
-    public Item(int price, int idImage, String name, String valute, String description) {
+    public Product(int price, int idImage, String name, String valute, String description) {
         this._price = price;
         this._idImage = idImage;
         this._name = name;
