@@ -4,7 +4,6 @@ package com.example.store.services;
 import com.example.store.entities.UserStore;
 import com.example.store.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,11 +22,11 @@ public class UserService {
     }
 
     public UserStore getUser(String login){
-        return _userRepository.findByLogin(login);
+        return _userRepository.findBy_login(login);
     }
 
     public int[] getFavorites(String login){
-        return _userRepository.findByLogin(login).getFavorites();
+        return _userRepository.findBy_login(login).getFavorites();
     }
 
     /**
@@ -36,7 +35,7 @@ public class UserService {
      * @param idProduct id товара, который добавляется
      */
     public void addFavorite(String login, int idProduct){
-        UserStore user = _userRepository.findByLogin(login);
+        UserStore user = _userRepository.findBy_login(login);
         int len = user.getFavorites().length;
         int [] favorites = user.getFavorites();
         int [] localMass =  new int[len + 1];
@@ -53,7 +52,7 @@ public class UserService {
      * @param idProduct id товара, который удаляется
      */
     public void deleteFavorite(String login, int idProduct){
-        UserStore user = _userRepository.findByLogin(login);
+        UserStore user = _userRepository.findBy_login(login);
         int len = user.getFavorites().length;
         int [] favorites = user.getFavorites();
         int [] localMass = new int[len - 1];

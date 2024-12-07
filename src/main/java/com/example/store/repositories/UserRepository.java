@@ -4,5 +4,5 @@ import com.example.store.entities.UserStore;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<UserStore, Integer> {
-    public UserStore findByLogin(String login);
+    UserStore findBy_login(String _login);
 }
