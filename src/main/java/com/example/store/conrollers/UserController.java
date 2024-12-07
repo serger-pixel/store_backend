@@ -4,6 +4,7 @@ import com.example.store.entities.UserStore;
 import com.example.store.exceptions.NotFoundUserException;
 import com.example.store.exceptions.UserAreReg;
 import com.example.store.services.UserService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,10 +37,9 @@ public class UserController {
      * @param login логин пользователя
      * @return ифнормацию о входе
      */
-    @GetMapping(value="users/signin")
-    @ResponseStatus
-    public  ResponseEntity<UserStore> getUser(@RequestParam String login,
-                                              @RequestParam String password){
+    @GetMapping(value="users/signin/{login}/{password}")
+    public  ResponseEntity<UserStore> getUser(@PathParam(value = "login")  String login,
+                                              @PathParam(value = "password") String password){
         UserStore localUser = _service.getUser(login);
         if (localUser == null) {
             throw new NotFoundUserException();
@@ -56,7 +56,6 @@ public class UserController {
      *
      */
     @PutMapping(value="users/{login}/take/product/{idProduct}")
-    @ResponseStatus
     public void addFavorite(@PathVariable(value = "login") String login,
                             @PathVariable(value="idProduct") int idProduct){
         UserStore localUser = _service.getUser(login);
@@ -67,7 +66,6 @@ public class UserController {
     }
 
     @DeleteMapping(value="users/{login}/delete/product/{idProduct}")
-    @ResponseStatus
     public void deleteFavorite(@PathVariable(value = "login") String login,
                                @PathVariable(value="idProduct") int idProduct){
         UserStore localUser = _service.getUser(login);
