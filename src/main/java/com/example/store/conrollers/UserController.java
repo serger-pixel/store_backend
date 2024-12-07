@@ -2,10 +2,12 @@ package com.example.store.conrollers;
 
 import com.example.store.entities.UserStore;
 import com.example.store.exceptions.NotFoundUserException;
+import com.example.store.exceptions.NotIDentificationUserException;
 import com.example.store.exceptions.UserAreReg;
 import com.example.store.services.UserService;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +22,15 @@ public class UserController {
     private UserService _service;
 
     /**
+     * Сообщение о том, что пользователя не существует
+     */
+    private static final String _NotFoundUserMess = "Такого пользователя не существует";
+
+    private static final String _NotIdentifiedUserMess = "Неправильный пароль";
+
+    private static final String _UserAreRegMess = "Пользователь уже зарегестрирован";
+
+    /**
      * Метод регистрирования пользователя
      * @param user данные о пользователе
      * @return ифнормацию о регистрации
@@ -29,7 +40,7 @@ public class UserController {
         if(_service.getUser(user.getLogin()) == null){
             return ResponseEntity.ok().body(_service.regUser(user));
         }
-        throw new UserAreReg();
+        throw new UserAreReg(_UserAreRegMess);
     }
 
     /**
@@ -42,12 +53,13 @@ public class UserController {
                                               @PathParam(value = "password") String password){
         UserStore localUser = _service.getUser(login);
         if (localUser == null) {
-            throw new NotFoundUserException();
+            throw new NotFoundUserException(_NotFoundUserMess);
         }
         if (!localUser.getPassword().equals(password)){
-            throw new NotFoundUserException();
+            throw new NotIDentificationUserException(_NotIdentifiedUserMess);
         }
-        return ResponseEntity.ok().body(localUser);
+        //return ResponseEntity.ok().body(localUser);
+        return new ResponseEntity<>(localUser, HttpStatus.ACCEPTED);
     }
 
     /**
@@ -60,7 +72,7 @@ public class UserController {
                             @PathVariable(value="idProduct") int idProduct){
         UserStore localUser = _service.getUser(login);
         if (localUser == null) {
-            throw new NotFoundUserException();
+            throw new NotFoundUserException(_NotFoundUserMess);
         }
         _service.addFavorite(login, idProduct);
     }
@@ -70,7 +82,7 @@ public class UserController {
                                @PathVariable(value="idProduct") int idProduct){
         UserStore localUser = _service.getUser(login);
         if (localUser == null) {
-            throw new NotFoundUserException();
+            throw new NotFoundUserException(_NotFoundUserMess);
         }
         _service.deleteFavorite(login, idProduct);
     }
