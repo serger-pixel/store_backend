@@ -14,10 +14,10 @@ public class UserRepositoryCustomImpl {
     private UserRepository _userRepository;
 
     @SuppressWarnings("unused")
-    public UserStore findBy_login(String _login) {
+    public UserStore findBy_login(String login, String password) {
         Iterable<UserStore> lst = _userRepository.findAll();
         for (var i: lst){
-            if (i.getLogin().equals(_login)){
+            if (i.getLogin().equals(login) && i.getPassword().equals(password)){
                 return i;
             };
         }

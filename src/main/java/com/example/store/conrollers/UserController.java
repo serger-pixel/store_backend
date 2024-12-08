@@ -49,8 +49,8 @@ public class UserController {
      * @return ифнормацию о входе
      */
     @GetMapping(value="users/signin/{login}/{password}")
-    public  ResponseEntity<UserStore> getUser(@PathParam(value = "login")  String login,
-                                              @PathParam(value = "password") String password){
+    public  ResponseEntity<UserStore> getUser(@PathVariable(value = "login")  String login,
+                                              @PathVariable(value = "password") String password){
         UserStore localUser = _service.getUser(login);
         if (localUser == null) {
             throw new NotFoundUserException(_NotFoundUserMess);
@@ -59,7 +59,7 @@ public class UserController {
             throw new NotIDentificationUserException(_NotIdentifiedUserMess);
         }
         //return ResponseEntity.ok().body(localUser);
-        return new ResponseEntity<>(localUser, HttpStatus.ACCEPTED);
+        return ResponseEntity.ok().body(localUser);
     }
 
     /**

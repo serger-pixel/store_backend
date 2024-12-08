@@ -26,7 +26,7 @@ public class UserStore {
 
     private String _role = UserService._defaultRole;
 
-    private int _idImage;
+    private int _idImage = -1;
 
 
     public UserStore(String password, String login) {
@@ -46,12 +46,20 @@ public class UserStore {
         return _password;
     }
 
+    public int getIdImage(){
+        return _idImage;
+    }
+
     public int[] getFavorites() {
         int[] localMass = new int[_favorites.length];
         for(int i =0; i < _favorites.length; i++){
             localMass[i] = _favorites[i];
         }
         return localMass;
+    }
+
+    public void setIdImage(int idImage){
+        _idImage = idImage;
     }
 
     public void setId(int id) {
