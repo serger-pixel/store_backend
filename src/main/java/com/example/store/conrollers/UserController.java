@@ -6,6 +6,7 @@ import com.example.store.exceptions.NotIDentificationUserException;
 import com.example.store.exceptions.UserAreReg;
 import com.example.store.services.UserService;
 import jakarta.websocket.server.PathParam;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class UserController {
 
     private static final String _NotIdentifiedUserMess = "Неправильный пароль";
 
-    private static final String _UserAreRegMess = "Пользователь уже зарегестрирован";
+    private static final String _UserAreRegMess = "Пользователь уже зарегистрирован";
 
     /**
      * Метод регистрирования пользователя
@@ -58,7 +59,6 @@ public class UserController {
         if (!localUser.getPassword().equals(password)){
             throw new NotIDentificationUserException(_NotIdentifiedUserMess);
         }
-        //return ResponseEntity.ok().body(localUser);
         return ResponseEntity.ok().body(localUser);
     }
 
@@ -69,21 +69,24 @@ public class UserController {
      */
     @PutMapping(value="users/{login}/take/product/{idProduct}")
     public void addFavorite(@PathVariable(value = "login") String login,
-                            @PathVariable(value="idProduct") int idProduct){
+                                                 @PathVariable(value="idProduct") int idProduct){
         UserStore localUser = _service.getUser(login);
-        if (localUser == null) {
-            throw new NotFoundUserException(_NotFoundUserMess);
-        }
         _service.addFavorite(login, idProduct);
     }
 
     @DeleteMapping(value="users/{login}/delete/product/{idProduct}")
     public void deleteFavorite(@PathVariable(value = "login") String login,
-                               @PathVariable(value="idProduct") int idProduct){
+                                                    @PathVariable(value="idProduct") int idProduct){
         UserStore localUser = _service.getUser(login);
-        if (localUser == null) {
-            throw new NotFoundUserException(_NotFoundUserMess);
-        }
         _service.deleteFavorite(login, idProduct);
     }
+
+    @PutMapping(value="users/{login}/set/product/image/{idProduct}")
+    public void setImage(@PathVariable(value = "login") String login,
+                    @PathVariable(value="idProduct") int idProduct){
+        UserStore localUser = _service.getUser(login);
+        _service.setImage(login, idProduct);
+    }
+
+
 }

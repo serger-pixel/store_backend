@@ -15,7 +15,7 @@ public class UserService {
 
     public final static String _defaultRole = "User";
 
-    public final static int _defaultLen = 1;
+    public final static int _defaultLen = 0;
 
     public UserStore regUser(UserStore user){
         return _userRepository.save(user);
@@ -44,6 +44,7 @@ public class UserService {
         }
         localMass[len] = idProduct;
         user.setFavorites(localMass);
+        _userRepository.save(user);
     }
 
     /**
@@ -65,6 +66,13 @@ public class UserService {
             indLocalMass++;
         }
         user.setFavorites(localMass);
+        _userRepository.save(user);
+    }
+
+    public void setImage(String login, int idProduct){
+        UserStore user = _userRepository.findBy_login(login);
+        user.setIdImage(idProduct);
+        _userRepository.save(user);
     }
 }
 

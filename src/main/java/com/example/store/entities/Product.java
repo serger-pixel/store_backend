@@ -9,16 +9,22 @@ import lombok.NoArgsConstructor;
 public class Product {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column
     private int _id;
 
+    @Column
     private int _price;
 
+    @Column
     private String _name;
 
+    @Column
     private String _valute;
 
+    @Column(length = 1000)
     private String _description;
 
+    @Column
     private int _idImage;
 
     public Product(int price, int idImage, String name, String valute, String description) {

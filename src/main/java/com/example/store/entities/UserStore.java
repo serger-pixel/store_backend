@@ -16,16 +16,22 @@ import java.util.ArrayList;
 public class UserStore {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column
     private int _id;
 
+    @Column
     private String _login;
 
+    @Column
     private String _password;
 
+    @Column
     private int[] _favorites = new int[UserService._defaultLen];
 
+    @Column
     private String _role = UserService._defaultRole;
 
+    @Column
     private int _idImage = -1;
 
 
