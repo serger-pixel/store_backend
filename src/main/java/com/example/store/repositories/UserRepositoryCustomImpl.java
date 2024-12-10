@@ -5,6 +5,9 @@ import com.example.store.exceptions.NotFoundUserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * Расширение для репозитория пользователей
+ */
 @Component
 public class UserRepositoryCustomImpl {
     /**
@@ -13,6 +16,12 @@ public class UserRepositoryCustomImpl {
     @Autowired
     private UserRepository _userRepository;
 
+    /**
+     * Реализация метода findBy_login
+     * @param login логин
+     * @param password пароль
+     * @return пользователя или null в зависимости от успешности поиска
+     */
     @SuppressWarnings("unused")
     public UserStore findBy_login(String login, String password) {
         Iterable<UserStore> lst = _userRepository.findAll();

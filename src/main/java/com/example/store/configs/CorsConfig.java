@@ -23,9 +23,16 @@ import static org.springframework.http.HttpMethod.PATCH;
 import static org.springframework.http.HttpMethod.POST;
 import static org.springframework.http.HttpMethod.PUT;
 
+/**
+ * Класс-конфигурация cors
+ */
 @Configuration
 public class CorsConfig {
 
+    /**
+     * Настройки конфигурации
+     * @return конфигурации
+     */
     @Bean
     public CorsFilter corsFilter(){
         var urlBasedSource = new UrlBasedCorsConfigurationSource();

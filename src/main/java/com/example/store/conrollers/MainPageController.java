@@ -9,11 +9,21 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.xml.crypto.Data;
 import java.util.Date;
 
+/**
+ * Класс-контроллер главной страницы
+ */
 @RestController
 public class MainPageController {
+    /**
+     * Сервис пользователя
+     */
     @Autowired
     UserService _service;
 
+    /**
+     * Получение счётчика посещений
+     * @return счётчик посещений
+     */
     @GetMapping(value="/get/cnt")
     public int getCnt(){
         Iterable<UserStore> lstUser = _service.getAll();
@@ -24,6 +34,10 @@ public class MainPageController {
         return cnt;
     }
 
+    /**
+     * Получение текущей даты и времени
+     * @return текущая дата и время
+     */
     @GetMapping(value="/get/time")
     public String getTime(){
         return (new Date()).toString();

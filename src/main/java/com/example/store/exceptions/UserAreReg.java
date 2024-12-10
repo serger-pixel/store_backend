@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @ResponseStatus(value= HttpStatus.ACCEPTED)
 public class UserAreReg extends RuntimeException{
+    /**
+     * Конструктор
+     * @param message сообщение
+     */
     public UserAreReg(String message){
         super(message);
     }

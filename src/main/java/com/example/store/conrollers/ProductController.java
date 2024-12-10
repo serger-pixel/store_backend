@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
+/**
+ * Класс-контроллер товара
+ */
 @RestController
 public class ProductController {
+    /**
+     * Сервис товара
+     */
     @Autowired
     private ProductService _service;
 
@@ -18,11 +24,20 @@ public class ProductController {
 //        return ResponseEntity.created(URI.create("/post")).body(_service.saveProduct(product));
 //    }
 
+    /**
+     * Получение товара
+     * @param id идентификатор товара
+     * @return JSON с данными
+     */
     @GetMapping(value="items/get/{id}")
     public ResponseEntity <Product> getItem(@PathVariable(value = "id") String id){
         return ResponseEntity.ok().body(_service.getProduct(Integer.parseInt(id)));
     }
 
+    /**
+     * Получение всех товаров
+     * @return JSON с данными
+     */
     @GetMapping(value="items/get/all")
     public ResponseEntity <Iterable<Product>> getAllItem(){
         return ResponseEntity.ok().body(_service.getAllProduct());

@@ -27,8 +27,14 @@ public class UserController {
      */
     private static final String _NotFoundUserMess = "Такого пользователя не существует";
 
+    /**
+     * Сообщение о неправильном пароле
+     */
     private static final String _NotIdentifiedUserMess = "Неправильный пароль";
 
+    /**
+     * Сообщение о том, что такой пользователь уже зарегестрирован
+     */
     private static final String _UserAreRegMess = "Пользователь уже зарегистрирован";
 
     /**
@@ -76,6 +82,11 @@ public class UserController {
         _service.addFavorite(login, idProduct);
     }
 
+    /**
+     * Удаление товара из избранного
+     * @param login логин пользователя
+     * @param idProduct идентификатор товара
+     */
     @DeleteMapping(value="users/{login}/delete/product/{idProduct}")
     public void deleteFavorite(@PathVariable(value = "login") String login,
                                                     @PathVariable(value="idProduct") int idProduct){
@@ -83,11 +94,16 @@ public class UserController {
         _service.deleteFavorite(login, idProduct);
     }
 
-    @PutMapping(value="users/{login}/set/product/image/{idProduct}")
+    /**
+     * Установка изображения
+     * @param login логин пользователя
+     * @param idImage идентификатор изображения
+     */
+    @PutMapping(value="users/{login}/set/product/image/{idImage}")
     public void setImage(@PathVariable(value = "login") String login,
-                    @PathVariable(value="idProduct") int idProduct){
+                    @PathVariable(value="idImage") int idImage){
         UserStore localUser = _service.getUser(login);
-        _service.setImage(login, idProduct);
+        _service.setImage(login, idImage);
     }
 
 
