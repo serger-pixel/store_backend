@@ -8,31 +8,68 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+/**
+ * Класс-сервис для пользователя
+ */
 @Service
 public class UserService {
+    /**
+     * Репозиторий пользователей
+     */
     @Autowired
     public UserRepository _userRepository;
 
+    /**
+     * Роль по умолчанию
+     */
     public final static String _defaultRole = "User";
 
+    /**
+     * Длина списка избранных товаров по умолчанию
+     */
     public final static int _defaultLen = 0;
 
+    /**
+     * Идентификатор изображения по умолчанию
+     */
     public final static int _defaultImageId = -1;
 
+    /**
+     * Кол-во посещений по умолчанию
+     */
     public final static int _defaultCntLog = 1;
 
+    /**
+     * Сохранение пользователя в базе данных
+     * @param user пользователь
+     * @return экземпляр сохранённой сущности
+     */
     public UserStore regUser(UserStore user){
         return _userRepository.save(user);
     }
 
+    /**
+     * Получение пользователя из базы данных
+     * @param login логин
+     * @return пользователь
+     */
     public UserStore getUser(String login){
         return _userRepository.findBy_login(login);
     }
 
+    /**
+     * Получение всех пользователей из базы данных
+     * @return список всех пользователей
+     */
     public Iterable<UserStore> getAll(){
         return _userRepository.findAll();
     }
 
+    /**
+     * Получение всех избранных товаров пользователя
+     * @param login логин
+     * @return список избранных товаров
+     */
     public int[] getFavorites(String login){
         return _userRepository.findBy_login(login).getFavorites();
     }
@@ -77,6 +114,11 @@ public class UserService {
         _userRepository.save(user);
     }
 
+    /**
+     * Установка изображения (аватара)
+     * @param login логин пользователя
+     * @param idProduct идентификатор изображения
+     */
     public void setImage(String login, int idProduct){
         UserStore user = _userRepository.findBy_login(login);
         user.setIdImage(idProduct);
