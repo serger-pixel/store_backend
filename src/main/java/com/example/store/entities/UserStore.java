@@ -3,6 +3,7 @@ package com.example.store.entities;
 import com.example.store.services.UserService;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import org.apache.catalina.User;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,7 +33,10 @@ public class UserStore {
     private String _role = UserService._defaultRole;
 
     @Column
-    private int _idImage = -1;
+    private int _idImage = UserService._defaultImageId;
+
+    @Column
+    private int _cntLog = UserService._defaultCntLog;
 
 
     public UserStore(String password, String login) {
@@ -64,6 +68,18 @@ public class UserStore {
         return localMass;
     }
 
+    public String getRole(){
+        return _role;
+    }
+
+    public int getCntLog(){
+        return _cntLog;
+    }
+
+    public void setCntLog(int cntLog){
+        _cntLog = cntLog;
+    }
+
     public void setIdImage(int idImage){
         _idImage = idImage;
     }
@@ -74,10 +90,6 @@ public class UserStore {
 
     public void setRole(String role){
         _role = role;
-    }
-
-    public String getRole(){
-        return _role;
     }
 
     public void setLogin(String login) {

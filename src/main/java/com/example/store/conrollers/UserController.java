@@ -59,6 +59,8 @@ public class UserController {
         if (!localUser.getPassword().equals(password)){
             throw new NotIDentificationUserException(_NotIdentifiedUserMess);
         }
+        localUser.setCntLog(localUser.getCntLog()+1);
+        _service._userRepository.save(localUser);
         return ResponseEntity.ok().body(localUser);
     }
 

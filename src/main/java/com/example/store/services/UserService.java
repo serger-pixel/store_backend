@@ -11,11 +11,15 @@ import java.util.ArrayList;
 @Service
 public class UserService {
     @Autowired
-    private UserRepository _userRepository;
+    public UserRepository _userRepository;
 
     public final static String _defaultRole = "User";
 
     public final static int _defaultLen = 0;
+
+    public final static int _defaultImageId = -1;
+
+    public final static int _defaultCntLog = 1;
 
     public UserStore regUser(UserStore user){
         return _userRepository.save(user);
@@ -23,6 +27,10 @@ public class UserService {
 
     public UserStore getUser(String login){
         return _userRepository.findBy_login(login);
+    }
+
+    public Iterable<UserStore> getAll(){
+        return _userRepository.findAll();
     }
 
     public int[] getFavorites(String login){
