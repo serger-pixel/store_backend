@@ -62,6 +62,8 @@ public class UserStore {
     @Column
     private int _cntLog = UserService._defaultCntLog;
 
+    @Column
+    private String _status = UserService._defaultStatus;
     /**
      * Конструктор
      * @param password пароль

@@ -32,12 +32,14 @@ public class UserService {
     /**
      * Идентификатор изображения по умолчанию
      */
-    public final static int _defaultImageId = -1;
+    public final static int _defaultImageId = 26;
 
     /**
      * Кол-во посещений по умолчанию
      */
     public final static int _defaultCntLog = 1;
+
+    public final static String _defaultStatus = "unbanned";
 
     /**
      * Сохранение пользователя в базе данных
