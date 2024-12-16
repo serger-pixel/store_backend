@@ -40,10 +40,11 @@ public class Event {
      * @param time время составления новости
      * @param author автор новости
      */
-    public Event(String text, String time, String author) {
+    public Event(String text, String time, String author, String head) {
         this._text = text;
         this._time = time;
         this._author = author;
+        this._head = head;
     }
 
     public String getText(){
