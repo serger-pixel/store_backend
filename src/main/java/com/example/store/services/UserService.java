@@ -36,6 +36,8 @@ public class UserService {
 
     public static final String _NotAccess = "Недостачно прав";
 
+    public static final String _UserAreBan = "Пользователь забанен";
+
     /**
      * Роль по умолчанию
      */

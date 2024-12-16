@@ -3,12 +3,10 @@ package com.example.store.conrollers;
 import com.example.store.entities.UserStore;
 import com.example.store.exceptions.NotFoundUserException;
 import com.example.store.exceptions.NotIDentificationUserException;
+import com.example.store.exceptions.UserAreBanned;
 import com.example.store.exceptions.UserAreReg;
 import com.example.store.services.UserService;
-import jakarta.websocket.server.PathParam;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,6 +49,9 @@ public class UserController {
         }
         if (!localUser.getPassword().equals(password)){
             throw new NotIDentificationUserException(_NotIdentifiedUserMess);
+        }
+        if (localUser.getStatus().equals(_bannedStatus)){
+            throw new UserAreBanned(_UserAreBan);
         }
         localUser.setCntLog(localUser.getCntLog()+1);
         _service._userRepository.save(localUser);
