@@ -43,8 +43,6 @@ public class UserService {
      */
     public final static String _defaultRole = "User";
 
-    public final static String _adminRole ="Admin";
-
     /**
      * Роль модератора
      */
