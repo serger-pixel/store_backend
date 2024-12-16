@@ -15,6 +15,11 @@ public class Event {
     private int _id;
 
     /**
+     * Заголовок новости
+     */
+    private String _head;
+
+    /**
      * Текст новости
      */
     private String _text;
@@ -35,10 +40,11 @@ public class Event {
      * @param time время составления новости
      * @param author автор новости
      */
-    public Event(String text, String time, String author) {
+    public Event(String text, String time, String author, String head) {
         this._text = text;
         this._time = time;
         this._author = author;
+        this._head = head;
     }
 
     public String getText(){
@@ -53,6 +59,10 @@ public class Event {
         return _author;
     }
 
+    public String getHead(){return _head;}
+
+    public int getId() {return _id;}
+
     public void setText(String text){
         _text = text;
     }
@@ -64,4 +74,8 @@ public class Event {
     public void setAuthor(String author){
         _author = author;
     }
+
+    public void  setHead(String head){_head = head;}
+
+    public void setId(int id) {_id = id;}
 }

@@ -46,6 +46,16 @@ public class UserService {
     public final static String _adminRole ="Admin";
 
     /**
+     * Роль модератора
+     */
+    public final static String _moderatorRole = "Moderator";
+
+    /**
+     * Роль администратора
+     */
+    public final static String _adminRole = "Admin";
+
+    /**
      * Длина списка избранных товаров по умолчанию
      */
     public final static int _defaultLen = 0;
