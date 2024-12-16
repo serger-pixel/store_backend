@@ -20,9 +20,28 @@ public class UserService {
     public UserRepository _userRepository;
 
     /**
+     * Сообщение о том, что пользователя не существует
+     */
+    public static final String _NotFoundUserMess = "Такого пользователя не существует";
+
+    /**
+     * Сообщение о неправильном пароле
+     */
+    public static final String _NotIdentifiedUserMess = "Неправильный пароль";
+
+    /**
+     * Сообщение о том, что такой пользователь уже зарегестрирован
+     */
+    public static final String _UserAreRegMess = "Пользователь уже зарегистрирован";
+
+    public static final String _NotAccess = "Недостачно прав";
+
+    /**
      * Роль по умолчанию
      */
     public final static String _defaultRole = "User";
+
+    public final static String _adminRole ="Admin";
 
     /**
      * Длина списка избранных товаров по умолчанию
@@ -40,6 +59,8 @@ public class UserService {
     public final static int _defaultCntLog = 1;
 
     public final static String _defaultStatus = "unbanned";
+
+    public final static String _bannedStatus = "banned";
 
     /**
      * Сохранение пользователя в базе данных

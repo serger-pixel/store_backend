@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
+import static com.example.store.services.UserService.*;
+
 @RestController
 public class UserController {
     /**
@@ -21,21 +23,6 @@ public class UserController {
      */
     @Autowired
     private UserService _service;
-
-    /**
-     * Сообщение о том, что пользователя не существует
-     */
-    private static final String _NotFoundUserMess = "Такого пользователя не существует";
-
-    /**
-     * Сообщение о неправильном пароле
-     */
-    private static final String _NotIdentifiedUserMess = "Неправильный пароль";
-
-    /**
-     * Сообщение о том, что такой пользователь уже зарегестрирован
-     */
-    private static final String _UserAreRegMess = "Пользователь уже зарегистрирован";
 
     /**
      * Метод регистрирования пользователя

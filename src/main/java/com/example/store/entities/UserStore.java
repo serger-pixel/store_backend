@@ -134,6 +134,10 @@ public class UserStore {
         return _cntLog;
     }
 
+    public String getStatus(){
+        return _status;
+    }
+
     /**
      * Установка счётчика посещений
      * @param cntLog  счётчик посещений
@@ -188,5 +192,9 @@ public class UserStore {
      */
     public void setFavorites(int[] favorites){
         _favorites = favorites;
+    }
+
+    public void setStatus(String status){
+        _status = status;
     }
 }
