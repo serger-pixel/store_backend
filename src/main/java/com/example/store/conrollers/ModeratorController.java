@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import static com.example.store.services.UserService._adminRole;
 import static com.example.store.services.UserService._moderatorRole;
 
+/**
+ * Класс-контроллер модератора
+ */
 @RestController
 public class ModeratorController {
 
