@@ -11,7 +11,7 @@ import static com.example.store.services.UserService._NotAccess;
 import static com.example.store.services.UserService._adminRole;
 
 @RestController
-public class AdminController {
+public class AdminController extends ModeratorController{
     /**
      * Сервис для работы c администратором
      */

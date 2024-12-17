@@ -73,12 +73,22 @@ public class AdminService {
         _userRepository.save(user);
     }
 
+    /**
+     * Установка логина пользователя
+     * @param id идентификатор пользователя
+     * @param login логин
+     */
     public void setLogin(int id, String login){
         UserStore user = _userRepository.findById(id).get();
         user.setLogin(login);
         _userRepository.save(user);
     }
 
+    /**
+     * Установка пароля пользователя
+     * @param id идентификатор пользователя
+     * @param password пароль
+     */
     public void setPassword(int id, String password){
         UserStore user = _userRepository.findById(id).get();
         user.setPassword(password);

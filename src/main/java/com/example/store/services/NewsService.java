@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Класс-сервис для новостей
  */
 @Service
-public class NewsService {
+public class NewsService{
 
     /**
      * Репозиторий новостей

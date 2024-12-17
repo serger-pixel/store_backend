@@ -194,6 +194,10 @@ public class UserStore {
         _favorites = favorites;
     }
 
+    /**
+     * Установка статуса
+     * @param status статус
+     */
     public void setStatus(String status){
         _status = status;
     }

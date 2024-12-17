@@ -16,7 +16,7 @@ import static com.example.store.services.UserService._moderatorRole;
  * Класс-контроллер модератора
  */
 @RestController
-public class ModeratorController {
+public class ModeratorController extends UserController{
 
     /**
      * Сообщение о том, что пользователь не является модератором
