@@ -38,8 +38,14 @@ public class UserService {
      */
     public static final String _UserAreRegMess = "Пользователь уже зарегистрирован";
 
+    /**
+     * Сообщение о том, что у пользователя недостаточно прав для какого-либо действия
+     */
     public static final String _NotAccess = "Недостачно прав";
 
+    /**
+     * Сообщение о том, что пользователь забанен
+     */
     public static final String _UserAreBan = "Пользователь забанен";
 
     /**
@@ -72,8 +78,14 @@ public class UserService {
      */
     public final static int _defaultCntLog = 1;
 
+    /**
+     * Статус пользователя по умолчанию
+     */
     public final static String _defaultStatus = "unbanned";
 
+    /**
+     * Статус забаннего пользователя
+     */
     public final static String _bannedStatus = "banned";
 
     /**

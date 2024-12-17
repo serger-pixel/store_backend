@@ -16,21 +16,25 @@ public class Image {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private int _id;
 
     /**
      * Тип файла
      */
+    @Column
     private String _fileType;
 
     /**
      * Размер файла
      */
+    @Column
     private Long _fileSize;
 
     /**
      * Изображение в байтах
      */
+    @Column
     @Lob
     private byte[] _bytes;
 
