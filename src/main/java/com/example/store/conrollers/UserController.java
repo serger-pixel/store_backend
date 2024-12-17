@@ -91,6 +91,9 @@ public class UserController {
     public void setImage(@PathVariable(value = "login") String login,
                     @PathVariable(value="idImage") int idImage){
         UserStore localUser = _service.getUser(login);
+        if (localUser.getIdImage() != _defaultImageId){
+            _service._imageRepository.deleteById(localUser.getIdImage());
+        }
         _service.setImage(login, idImage);
     }
 

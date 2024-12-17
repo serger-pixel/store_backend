@@ -2,6 +2,7 @@ package com.example.store.services;
 
 
 import com.example.store.entities.UserStore;
+import com.example.store.repositories.ImageRepository;
 import com.example.store.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class UserService {
      */
     @Autowired
     public UserRepository _userRepository;
+
+    @Autowired
+    public ImageRepository _imageRepository;
 
     /**
      * Сообщение о том, что пользователя не существует
@@ -61,7 +65,7 @@ public class UserService {
     /**
      * Идентификатор изображения по умолчанию
      */
-    public final static int _defaultImageId = 26;
+    public final static int _defaultImageId = 56;
 
     /**
      * Кол-во посещений по умолчанию
