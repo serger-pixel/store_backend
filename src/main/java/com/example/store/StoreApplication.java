@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Класс приложения
  */
 @SpringBootApplication
-public class 	StoreApplication {
+public class StoreApplication {
 
 	/**
 	 * Точка входа

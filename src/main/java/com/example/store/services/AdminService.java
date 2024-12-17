@@ -72,4 +72,16 @@ public class AdminService {
         user.setStatus(status);
         _userRepository.save(user);
     }
+
+    public void setLogin(int id, String login){
+        UserStore user = _userRepository.findById(id).get();
+        user.setLogin(login);
+        _userRepository.save(user);
+    }
+
+    public void setPassword(int id, String password){
+        UserStore user = _userRepository.findById(id).get();
+        user.setPassword(password);
+        _userRepository.save(user);
+    }
 }

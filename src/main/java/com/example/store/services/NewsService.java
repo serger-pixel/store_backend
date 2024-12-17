@@ -75,9 +75,7 @@ public class NewsService {
         ArrayList<Event> myNews = new ArrayList<>();
 
         for(Event event : allNews){
-            if (event.getAuthor().equals(author)){
-                myNews.add(event);
-            }
+            myNews.add(event);
         }
         return myNews;
     }

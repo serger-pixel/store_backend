@@ -58,7 +58,7 @@ public class ModeratorController {
         if(!checkUser(login)){
             throw new NotModeratorException(_NotModeratorMess);
         }
-        return ResponseEntity.ok().body(_newsService.getMyNews(login));
+        return ResponseEntity.ok().body(_newsService.getNews());
     }
 
     /**

@@ -96,4 +96,28 @@ public class AdminController {
         }
         throw new NotAdmin(_NotAccess);
     }
+
+    @PutMapping(value="users/{login}/setuserlogin/{id}/{userLogin}")
+    public void setUserLogin(@PathVariable(value="login") String login,
+                              @PathVariable(value = "id") String id,
+                              @PathVariable(value = "userLogin") String userLogin){
+        UserStore localUser = _service._userRepository.findBy_login(login);
+        if (localUser.getRole().equals(_adminRole)){
+            _service.setLogin(Integer.parseInt(id), userLogin);
+        }
+        throw new NotAdmin(_NotAccess);
+    }
+
+    @PutMapping(value="users/{login}/setuserpassword/{id}/{password}")
+    public void setUserPassword(@PathVariable(value="login") String userLogin,
+                              @PathVariable(value = "id") String id,
+                              @PathVariable(value = "password") String password){
+        UserStore localUser = _service._userRepository.findBy_login(userLogin);
+        if (localUser.getRole().equals(_adminRole)){
+            _service.setPassword(Integer.parseInt(id), password);
+        }
+        throw new NotAdmin(_NotAccess);
+    }
+
+
 }
